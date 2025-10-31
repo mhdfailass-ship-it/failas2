@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-t-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syoufi Visual Suite</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+  }
+}
+</script>
+</head>
+  <body class="about-mode">
+    <div class="container">
+      <div class="two-column-layout-wrapper">
+        <main class="main-content">
+          <div class="tabs-container">
+            <!-- Top Row -->
+            <button id="about-tab" class="tab-btn active" role="tab" aria-selected="true" data-target="#about-content" data-sidebar="false" data-header="false" data-body-class="about-mode"><i class="fa-solid fa-circle-info"></i>About</button>
+            <button id="product-studio-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#product-studio-content" data-sidebar="true" data-header="true" data-body-class="product-studio-mode" data-header-title="Composite Engine" data-header-description="Upload a product and reference image, describe your desired changes, and let AI create the perfect shot."><i class="fa-solid fa-cube"></i>Studio Pro</button>
+            <button id="virtual-photoshoot-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#virtual-photoshoot-content" data-sidebar="false" data-header="true" data-body-class="virtual-photoshoot-mode" data-header-title="Virtual Photoshoot" data-header-description="Generate multiple angles of your product from a single photo."><i class="fa-solid fa-camera-rotate"></i>Virtual Shoot</button>
+            <button id="image-blender-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#image-blender-content" data-sidebar="false" data-header="true" data-body-class="image-blender-mode" data-header-title="Creative Image Blender" data-header-description="Combine multiple images and concepts to synthesize a completely new creation."><i class="fa-solid fa-layer-group"></i>Image Blender</button>
+            <button id="shifter-3d-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#shifter-3d-content" data-sidebar="false" data-header="true" data-body-class="shifter-3d-mode" data-header-title="2D to 3D Style Shifter" data-header-description="Transform your 2D illustrations into stunning 3D-style renders."><i class="fa-solid fa-cubes"></i>3D Shifter</button>
+            <button id="ai-image-generator-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#ai-image-generator-content" data-sidebar="false" data-header="true" data-body-class="ai-image-generator-mode" data-header-title="AI Image Generator" data-header-description="Describe the image you want to create in the prompt box below."><i class="fa-solid fa-wand-magic-sparkles"></i>Imagine</button>
+            <!-- Bottom Row -->
+            <button id="mockup-studio-tab" class="tab-btn" role="tab" aria-selected="false" data-target="#mockup-studio-content" data-sidebar="false" data-header="true" data-body-class="mockup-studio-mode" data-header-title="Mockup Studio" data-header-description="Upload a design and either a product image or a description to generate a photorealistic mockup."><i class="fa-solid fa-shirt"></i>Mockup Studio</button>
+          </div>
+          <header style="display: none;">
+            <div class="header-text-content">
+              <h1 id="header-title"></h1>
+              <p id="header-description"></p>
+            </div>
+          </header>
+
+          <div id="tab-content-panels">
+            <div id="about-content" class="tab-content active">
+              <section id="about-section" class="card">
+                <h1 class="about-title">Syoufi Visual Suite</h1>
+                <p class="about-description">The ultimate AI-powered visual suite for modern creative professionals. Go from concept to final composite in seconds.</p>
+                <div class="about-creator">Created by Muhamed El-Syoufi</div>
+                <div class="socials-container">
+                  <h4 class="follow-me-heading">Follow Me</h4>
+                  <div class="social-links">
+                    <a href="https://www.instagram.com/muhamedelsyoufi/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.behance.net/MuhamedElsyoufi" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-behance"></i></a>
+                    <a href="https://www.linkedin.com/in/muhamedelsyoufi/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/mayoelsyoufi/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.pinterest.com/syoufistudio7/" aria-label="Pinterest" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://drive.google.com/file/d/19HqLxpgApXaj5w2lKXN_2GAKwfsF4YM/view?usp=sharing" aria-label="Portfolio" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase"></i></a>
+                  </div>
+                  <div class="tiktok-promo">
+                    <p class="tiktok-promo-text">Watch tutorials and examples on TikTok:</p>
+                    <a href="https://www.tiktok.com/@muhamedelsyoufi" class="tiktok-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                      <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+            
+            <div id="product-studio-content" class="tab-content">
+              <section id="upload-section" class="card">
+                  <div class="image-uploader-container">
+                    <div class="image-uploader">
+                      <h3 class="step-heading">1. Product Image</h3>
+                      <div class="upload-box" id="product-image-box">
+                        <input type="file" id="product-image-input" data-before-image-var="productStudio" accept="image/*" aria-label="Upload Product Image">
+                        <button class="clear-upload-btn" aria-label="Clear product image" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="upload-placeholder">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                          <p>Click or drag to upload</p>
+                        </div>
+                        <img class="image-preview" src="#" alt="Product image preview" style="display:none;"/>
+                      </div>
+                    </div>
+                    <div class="image-uploader">
+                      <h3 class="step-heading">2. Reference Image</h3>
+                      <div class="upload-box" id="reference-image-box">
+                        <input type="file" id="reference-image-input" accept="image/*" aria-label="Upload Reference Image">
+                        <button class="clear-upload-btn" aria-label="Clear reference image" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="upload-placeholder">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                          <p>Click or drag to upload</p>
+                        </div>
+                         <img class="image-preview" src="#" alt="Reference image preview" style="display:none;"/>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+              <section id="prompt-section">
+                  <div class="prompt-container">
+                      <div class="label-with-action">
+                        <label for="prompt-input" class="section-label">3. Prompt</label>
+                        <button id="suggest-prompt-btn" class="btn-icon tooltip-container" data-tooltip="Suggest prompt based on Product Image">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <div class="spinner button-spinner"></div>
+                        </button>
+                      </div>
+                      <textarea id="prompt-input" rows="4" placeholder="e.g., Change the background to a sunny beach with palm trees"></textarea>
+                  </div>
+                  <div class="prompt-container">
+                      <label for="negative-prompt-input" class="section-label">Negative Prompt</label>
+                      <textarea id="negative-prompt-input" rows="2" placeholder="e.g., blurry, text, watermarks, extra fingers"></textarea>
+                  </div>
+              </section>
+              <div class="actions-container">
+                <div class="button-group">
+                  <button id="product-studio-generate-btn" class="btn btn-primary">
+                      <span class="button-content">
+                          <i class="fa-solid fa-bolt"></i>
+                          Generate
+                      </span>
+                      <div class="spinner button-spinner"></div>
+                  </button>
+                  <button id="download-btn" class="btn btn-secondary" disabled>
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                  </button>
+                </div>
+              </div>
+              <section class="final-result-container card">
+                <div class="spinner" style="display: none;"></div>
+                <div id="product-studio-result-content" class="result-content-area"></div>
+                <div class="error-message-area" style="display: none;"></div>
+              </section>
+            </div>
+            
+            <div id="ai-image-generator-content" class="tab-content">
+              <section id="ai-generator-section" class="card">
+                <div class="prompt-container">
+                    <label for="ai-prompt-input" class="section-label step-heading">1. Describe the image you want to create</label>
+                    <textarea id="ai-prompt-input" rows="6" placeholder="e.g., A photorealistic image of an astronaut riding a horse on Mars"></textarea>
+                </div>
+                <div class="prompt-container">
+                    <label for="ai-negative-prompt-input" class="section-label step-heading">2. Negative Prompt (optional)</label>
+                    <textarea id="ai-negative-prompt-input" rows="3" placeholder="e.g., blurry, text, watermarks, ugly"></textarea>
+                </div>
+              </section>
+              <div class="actions-container">
+                  <button id="ai-image-generator-btn" class="btn btn-primary">
+                      <span class="button-content">
+                          <i class="fa-solid fa-bolt"></i>
+                          Generate Image
+                      </span>
+                      <div class="spinner button-spinner"></div>
+                  </button>
+              </div>
+              <section class="final-result-container card">
+                <div class="spinner" style="display: none;"></div>
+                <div id="ai-generator-result-content" class="result-content-area"></div>
+                <div class="error-message-area" style="display: none;"></div>
+              </section>
+            </div>
+
+            <div id="mockup-studio-content" class="tab-content">
+              <section id="mockup-studio-section" class="card">
+                <div class="options-group" style="margin-top: 0;" id="mockup-mode-selector">
+                    <h4 class="options-group-title step-heading">1. Select Mode</h4>
+                    <div class="retouch-actions-grid" style="grid-template-columns: 1fr 1fr;">
+                      <label class="radio-control">
+                        <input type="radio" name="mockup-mode" value="apply" checked>
+                        <span class="custom-radio"></span> Apply to Existing Product Image
+                      </label>
+                      <label class="radio-control">
+                        <input type="radio" name="mockup-mode" value="generate">
+                        <span class="custom-radio"></span> Generate Product from Description
+                      </label>
+                    </div>
+                </div>
+
+                <div class="image-uploader" style="margin-top: 1.5rem;">
+                    <h3 class="step-heading">2. Upload Logo/Design (PNG recommended)</h3>
+                    <div class="upload-box" id="mockup-design-image-box">
+                        <input type="file" id="mockup-design-image-input" accept="image/*" aria-label="Upload Logo or Design">
+                        <button class="clear-upload-btn" aria-label="Clear mockup design image" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="upload-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            <p>Click or drag to upload</p>
+                        </div>
+                        <img class="image-preview" src="#" alt="Mockup design preview" style="display:none;"/>
+                    </div>
+                </div>
+
+                <div id="apply-mode-controls">
+                    <div class="image-uploader" style="margin-top: 1.5rem;">
+                        <h3 class="step-heading">3. Upload Product Image (e.g., T-shirt, Mug, Cap)</h3>
+                        <div class="upload-box" id="mockup-product-image-box">
+                            <input type="file" id="mockup-product-image-input" data-before-image-var="mockup" accept="image/*" aria-label="Upload Product Image for Mockup">
+                            <button class="clear-upload-btn" aria-label="Clear mockup product image" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                            <div class="upload-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                <p>Click or drag to upload</p>
+                            </div>
+                            <img class="image-preview" src="#" alt="Mockup product preview" style="display:none;"/>
+                        </div>
+                    </div>
+                     <div class="sidebar-control visual-wizard-toggle" style="margin-top: 1.5rem;">
+                      <div class="visual-wizard-label-container">
+                          <div id="ai-scene-assist-spinner" class="spinner" style="display: none; width: 18px; height: 18px; border-width: 2px;"></div>
+                          <span id="ai-scene-assist-label">💡 AI Scene Assist</span>
+                      </div>
+                      <label class="toggle-switch">
+                          <input type="checkbox" id="ai-scene-assist-checkbox" disabled>
+                          <span class="slider"></span>
+                      </label>
+                    </div>
+                    <div class="sidebar-control" style="margin-top: 1.5rem;">
+                        <label for="mockup-background-style-select" class="section-label step-heading">4. Choose Background Style</label>
+                        <select id="mockup-background-style-select">
+                            <optgroup label="Studio Basics">
+                                <option value="minimalist_studio" selected>Minimalist Studio</option>
+                                <option value="abstract_gradient">Abstract Gradient</option>
+                                <option value="geometric_shapes">Geometric Shapes</option>
+                            </optgroup>
+                            <optgroup label="Natural Textures">
+                                <option value="rustic_wood">Rustic Wood</option>
+                                <option value="marble_surface">Marble Surface</option>
+                                <option value="concrete_wall">Concrete Wall</option>
+                                <option value="linen_fabric">Linen Fabric</option>
+                            </optgroup>
+                            <optgroup label="Dynamic Elements">
+                                <option value="liquid_splash">Liquid Splash</option>
+                                <option value="smoke_fog">Smoke & Fog</option>
+                                <option value="floating_orbs">Floating Orbs</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="sidebar-control">
+                        <label for="mockup-lighting-mood-select" class="section-label step-heading">5. Choose Lighting Mood</label>
+                        <select id="mockup-lighting-mood-select">
+                            <optgroup label="Professional Studio">
+                                <option value="soft_studio" selected>Soft Studio Light</option>
+                                <option value="dramatic_hard">Dramatic Hard Light</option>
+                                <option value="high_key">High-Key Lighting</option>
+                                <option value="low_key">Low-Key Lighting</option>
+                            </optgroup>
+                            <optgroup label="Natural Light">
+                                <option value="natural_daylight">Natural Daylight</option>
+                                <option value="golden_hour">Golden Hour Light</option>
+                                <option value="direct_sunlight">Direct Sunlight</option>
+                                <option value="backlit_rim">Backlit / Rim Light</option>
+                            </optgroup>
+                            <optgroup label="Dramatic & Artistic">
+                                <option value="cinematic_volumetric">Cinematic Volumetric</option>
+                                <option value="neon_glow">Neon Glow</option>
+                                <option value="caustic_light">Caustic Light Patterns</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="sidebar-control">
+                        <label for="mockup-style-select" class="section-label step-heading">6. Application Style</label>
+                        <select id="mockup-style-select">
+                            <optgroup label="Printing Basics">
+                                <option value="screen_print">Screen Print</option>
+                                <option value="digital_print_dtg">Digital Print (DTG)</option>
+                                <option value="foil_stamping">Foil Stamping</option>
+                                <option value="uv_spot_print">UV Spot Print</option>
+                                <option value="letterpress">Letterpress</option>
+                                <option value="sublimation">Sublimation</option>
+                            </optgroup>
+                            <optgroup label="Fabric & Stitching Effects">
+                                <option value="embroidery" selected>Realistic Embroidery</option>
+                                <option value="puff_print">3D Puff Print</option>
+                                <option value="stitched_patch">Stitched Patch</option>
+                                <option value="woven_label">Woven Label</option>
+                                <option value="distressed_print">Vintage/Distressed Print</option>
+                            </optgroup>
+                            <optgroup label="Hard Surface Effects">
+                                <option value="laser_engraving">Laser Engraving</option>
+                                <option value="glass_etching">Glass Etching</option>
+                                <option value="emboss_deboss">Emboss / Deboss</option>
+                                <option value="wood_burn">Wood Burn</option>
+                            </optgroup>
+                            <optgroup label="Creative Effects">
+                                <option value="glitter_print">Glitter Print</option>
+                                <option value="glow_in_the_dark">Glow in the Dark</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="options-group">
+                        <h4 class="options-group-title step-heading">7. Final Touches</h4>
+                        <div class="sidebar-control">
+                            <label for="mockup-color-grade-select" class="section-label">Color Grade</label>
+                            <select id="mockup-color-grade-select">
+                                <option value="vibrant_commercial" selected>Vibrant & Commercial</option>
+                                <option value="cinematic_teal_orange">Cinematic Teal & Orange</option>
+                                <option value="moody_desaturated">Moody & Desaturated</option>
+                                <option value="warm_vintage">Warm Vintage Look</option>
+                                <option value="monochrome_noir">Monochrome Noir</option>
+                            </select>
+                        </div>
+                        <div class="sidebar-control">
+                            <label class="section-label">Camera & Film Effects</label>
+                            <div class="retouch-actions-grid">
+                                <label class="checkbox-control"><input type="checkbox" id="mockup-film-grain"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Film Grain</label>
+                                <label class="checkbox-control"><input type="checkbox" id="mockup-lens-flare"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Lens Flare</label>
+                                <label class="checkbox-control"><input type="checkbox" id="mockup-vignette"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Vignette</label>
+                                <label class="checkbox-control"><input type="checkbox" id="mockup-chromatic-aberration"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Chromatic Aberration</label>
+                                <label class="checkbox-control"><input type="checkbox" id="mockup-light-leaks"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Light Leaks</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="options-group">
+                        <h4 class="options-group-title step-heading">8. Human Interaction (Optional)</h4>
+                        <div class="sidebar-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                            <div class="sidebar-control">
+                                <label for="mockup-interaction-style-select" class="section-label">Interaction Style</label>
+                                <select id="mockup-interaction-style-select">
+                                    <option value="none" selected>None</option>
+                                    <option value="hand_holding">Hand Holding Product</option>
+                                    <option value="worn_by_model">Worn by Model</option>
+                                </select>
+                            </div>
+                            <div class="sidebar-control">
+                                <label for="mockup-model-gender-select" class="section-label">Model Gender</label>
+                                <select id="mockup-model-gender-select">
+                                    <option value="female" selected>Female</option>
+                                    <option value="male">Male</option>
+                                </select>
+                            </div>
+                            <div class="sidebar-control">
+                                <label for="mockup-skin-tone-select" class="section-label">Skin Tone</label>
+                                <select id="mockup-skin-tone-select">
+                                    <option value="light">Light</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="generate-mode-controls" style="display: none;">
+                   <div class="prompt-container" style="margin-top: 1.5rem;">
+                    <label for="ai-mockup-description-input" class="section-label step-heading">3. Describe the Mockup You Want to Create</label>
+                    <textarea id="ai-mockup-description-input" rows="5" placeholder="e.g., A black cotton t-shirt worn by a male model in an urban city street setting."></textarea>
+                  </div>
+                  <div class="sidebar-control">
+                    <label for="ai-mockup-material-select" class="section-label step-heading">4. Choose Object Material</label>
+                    <select id="ai-mockup-material-select">
+                      <optgroup label="Paper & Cardboard">
+                          <option value="matte_paper" selected>Matte Paper</option>
+                          <option value="glossy_coated_paper">Glossy Coated Paper</option>
+                          <option value="textured_craft_paper">Textured Craft Paper</option>
+                          <option value="thick_cardboard">Thick Cardboard</option>
+                          <option value="recycled_paper">Recycled Paper</option>
+                      </optgroup>
+                      <optgroup label="Plastics & Synthetics">
+                          <option value="glossy_hard_plastic">Glossy Hard Plastic</option>
+                          <option value="matte_plastic">Matte Plastic</option>
+                          <option value="transparent_plastic">Transparent Plastic</option>
+                          <option value="frosted_acrylic">Frosted Acrylic</option>
+                          <option value="silicone_rubber">Silicone / Rubber</option>
+                      </optgroup>
+                      <optgroup label="Metals">
+                          <option value="brushed_aluminum">Brushed Aluminum</option>
+                          <option value="polished_steel">Polished Steel</option>
+                          <option value="gold_foil">Gold Foil</option>
+                          <option value="anodized_metal">Anodized Metal</option>
+                          <option value="copper">Copper</option>
+                          <option value="chrome">Chrome</option>
+                      </optgroup>
+                      <optgroup label="Fabrics & Textiles">
+                          <option value="natural_cotton_tshirt">Natural Cotton (T-shirt)</option>
+                          <option value="canvas_tote_bag">Canvas (Tote Bag)</option>
+                          <option value="denim">Denim</option>
+                          <option value="leather">Leather</option>
+                          <option value="suede">Suede</option>
+                          <option value="polyester">Polyester</option>
+                      </optgroup>
+                      <optgroup label="Wood">
+                          <option value="polished_light_wood">Polished Light Wood</option>
+                          <option value="dark_walnut_wood">Dark Walnut Wood</option>
+                          <option value="rough_plywood">Rough Plywood</option>
+                          <option value="bamboo">Bamboo</option>
+                      </optgroup>
+                      <optgroup label="Glass & Ceramics">
+                          <option value="clear_glass">Clear Glass</option>
+                          <option value="frosted_glass">Frosted Glass</option>
+                          <option value="ceramic_mug">Ceramic Mug</option>
+                          <option value="porcelain">Porcelain</option>
+                      </optgroup>
+                      <optgroup label="Natural & Organic">
+                          <option value="stone_marble">Stone / Marble</option>
+                          <option value="concrete">Concrete</option>
+                          <option value="cork">Cork</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  <div class="sidebar-control">
+                    <label for="ai-mockup-application-style-select" class="section-label step-heading">5. Choose Application Style</label>
+                    <select id="ai-mockup-application-style-select">
+                      <optgroup label="Printing Basics">
+                        <option value="screen_print" selected>Screen Print</option>
+                        <option value="digital_print_dtg">Digital Print (DTG)</option>
+                        <option value="foil_stamping">Foil Stamping</option>
+                        <option value="uv_spot_print">UV Spot Print</option>
+                        <option value="letterpress">Letterpress</option>
+                        <option value="sublimation">Sublimation</option>
+                      </optgroup>
+                      <optgroup label="Fabric & Stitching Effects">
+                        <option value="embroidery">Realistic Embroidery</option>
+                        <option value="puff_print">3D Puff Print</option>
+                        <option value="stitched_patch">Stitched Patch</option>
+                        <option value="woven_label">Woven Label</option>
+                        <option value="distressed_print">Vintage/Distressed Print</option>
+                      </optgroup>
+                      <optgroup label="Hard Surface Effects">
+                        <option value="laser_engraving">Laser Engraving</option>
+                        <option value="glass_etching">Glass Etching</option>
+                        <option value="emboss_deboss">Emboss / Deboss</option>
+                        <option value="wood_burn">Wood Burn</option>
+                      </optgroup>
+                      <optgroup label="Creative Effects">
+                        <option value="glitter_print">Glitter Print</option>
+                        <option value="glow_in_the_dark">Glow in the Dark</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  <div class="sidebar-control">
+                    <label for="ai-mockup-scene-style-select" class="section-label step-heading">6. Choose Scene Style</label>
+                    <select id="ai-mockup-scene-style-select">
+                      <option value="minimalist_studio" selected>Minimalist Studio</option>
+                      <option value="corporate_clean">Corporate & Clean</option>
+                      <option value="elegant_textured">Elegant & Textured</option>
+                      <option value="bold_dynamic">Bold & Dynamic</option>
+                      <option value="organic_natural">Organic & Natural</option>
+                      <option value="abstract_serene">Abstract & Serene</option>
+                    </select>
+                  </div>
+                  <div class="sidebar-control">
+                    <label for="ai-mockup-camera-angle-select" class="section-label step-heading">7. Choose Camera Angle</label>
+                    <select id="ai-mockup-camera-angle-select">
+                      <option value="front_view" selected>Straight-on Front View</option>
+                      <option value="low_angle">Low Angle View</option>
+                      <option value="high_angle">High Angle View</option>
+                      <option value="side_view">Side View / Profile Shot</option>
+                      <option value="top_down">Top-Down / Overhead Shot</option>
+                      <option value="45_degree">45-Degree View</option>
+                      <option value="dutch_angle">Dutch Angle / Tilted Shot</option>
+                      <option value="pov">Point of View (POV) Shot</option>
+                      <option value="wide_angle_lens">Wide-Angle Lens Shot</option>
+                      <option value="telephoto_lens">Telephoto Lens / Compressed Shot</option>
+                    </select>
+                  </div>
+                  <div class="options-group">
+                    <h4 class="options-group-title step-heading">8. Final Artistic Effects</h4>
+                    <div class="sidebar-control">
+                        <label for="ai-mockup-color-grade-select" class="section-label">Color Grade</label>
+                        <select id="ai-mockup-color-grade-select">
+                            <option value="vibrant_commercial" selected>Vibrant & Commercial</option>
+                            <option value="cinematic_teal_orange">Cinematic Teal & Orange</option>
+                            <option value="moody_desaturated">Moody & Desaturated</option>
+                            <option value="warm_vintage">Warm Vintage Look</option>
+                            <option value="monochrome_noir">Monochrome Noir</option>
+                        </select>
+                    </div>
+                    <div class="sidebar-control">
+                        <label class="section-label">Camera & Film Effects</label>
+                        <div class="retouch-actions-grid">
+                            <label class="checkbox-control"><input type="checkbox" id="ai-mockup-film-grain"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Film Grain</label>
+                            <label class="checkbox-control"><input type="checkbox" id="ai-mockup-lens-flare"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Lens Flare</label>
+                            <label class="checkbox-control"><input type="checkbox" id="ai-mockup-vignette"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Vignette</label>
+                            <label class="checkbox-control"><input type="checkbox" id="ai-mockup-chromatic-aberration"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Chromatic Aberration</label>
+                            <label class="checkbox-control"><input type="checkbox" id="ai-mockup-light-leaks"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Light Leaks</label>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-group" style="margin-top: 1.5rem;">
+                    <button id="generate-mockup-btn" class="btn btn-primary">
+                        <span class="button-content">
+                            <i class="fa-solid fa-bolt"></i>
+                            Generate Mockup
+                        </span>
+                        <div class="spinner button-spinner"></div>
+                    </button>
+                </div>
+                <section class="final-result-container card">
+                  <div class="spinner" style="display: none;"></div>
+                  <div id="mockup-result-content" class="result-content-area"></div>
+                  <div class="error-message-area" style="display: none;"></div>
+                </section>
+              </section>
+            </div>
+
+            <div id="virtual-photoshoot-content" class="tab-content">
+              <section id="virtual-photoshoot-section" class="card">
+                <div class="virtual-photoshoot-controls">
+                  <div class="image-uploader">
+                    <h3 class="step-heading">1. Upload a Single Product Photo</h3>
+                    <div class="upload-box" id="photoshoot-product-image-box">
+                      <input type="file" id="photoshoot-product-image-input" accept="image/*" aria-label="Upload a single product photo">
+                      <button class="clear-upload-btn" aria-label="Clear product photo" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                      <div class="upload-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <p>Click or drag to upload</p>
+                      </div>
+                      <img class="image-preview" src="#" alt="Product photo preview for photoshoot" style="display:none;"/>
+                    </div>
+                  </div>
+
+                  <div class="prompt-container" style="margin-top: 1.5rem;">
+                    <label for="brand-vibe-input" class="section-label step-heading">2. Describe Your Product & Brand Vibe (Optional)</label>
+                    <textarea id="brand-vibe-input" rows="3" placeholder="e.g., A minimalist, eco-friendly skincare brand for young professionals. The mood is clean, airy, and natural."></textarea>
+                  </div>
+
+                  <div class="photoshoot-options-container" style="margin-top: 1.5rem;">
+                    <h3 class="step-heading">3. Select Desired Angles & Scenarios</h3>
+                    <fieldset>
+                      <legend>Standard Angles</legend>
+                      <div class="retouch-actions-grid">
+                        <label class="checkbox-control"><input type="checkbox" value="A clean, professional, straight-on front view of the product against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Front View</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A clean, professional, straight-on back view of the product against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Back View</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A clean, professional side profile view of the product against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Side Profile</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A perfectly composed top-down flat lay (knolling) shot of the product on a clean, neutral surface."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Top-Down / Flat Lay</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A dramatic low-angle shot of the product, making it appear heroic and prominent against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Low Angle View</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A high-angle shot looking down on the product, providing a clear overview of its top surfaces against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> High Angle View</label>
+                        <label class="checkbox-control"><input type="checkbox" value="A professional 45-degree (three-quarter) view of the product, showing its front and side simultaneously to reveal its form and depth, against a neutral studio background."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> 45-Degree View</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Render the product from a precise isometric perspective (non-perspective projection), showing its top, front, and side equally."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Isometric View</label>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Cinematic & Artistic</legend>
+                      <div class="retouch-actions-grid">
+                        <label class="checkbox-control"><input type="checkbox" value="Create a shot with an extreme bokeh effect, using a wide aperture (e.g., f/1.2) to render the background into a beautiful, creamy blur of light and color, forcing all attention onto the sharply focused product."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Bokeh Shot (Shallow Depth)</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Use a wide-angle lens (e.g., 14-24mm) to capture an expansive field of view, exaggerating depth and leading lines for a dynamic, immersive effect with the product as the focal point."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Wide-Angle Lens</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Compose a creative reflection shot, capturing the product's reflection in a puddle of water, a glossy surface, or a mirror for an artistic and visually interesting composition."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Reflection Shot</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Shoot during the golden hour with the sun low in the sky to cast a long, dramatic shadow from the product across the scene, adding a sense of mood and depth."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Long Shadow Shot</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Render the product as if it is floating or suspended gracefully in mid-air against a clean, artistic background. Use soft, ethereal lighting and shadows on the surface below to suggest weightlessness and position."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Floating / Suspended Shot</label>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Commercial &amp; Lifestyle</legend>
+                      <div class="retouch-actions-grid">
+                        <label class="checkbox-control"><input type="checkbox" value="Generate a clean, professional shot of the product integrated with its final retail packaging (e.g., box, label, bag). The composition should be suitable for e-commerce or advertising."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Packaging Shot</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Create a dynamic, high-speed shot of the product with a dramatic splash of a relevant liquid (e.g., water, milk, juice) frozen in time around it. The background should be clean and highlight the action."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Splash Shot</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Place the product in a lifestyle context on a clean, modern kitchen counter. The background should be slightly blurred (bokeh) and feature elements like stainless steel appliances or marble countertops."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> On a Modern Kitchen Counter</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Place the product in a cozy, rustic setting on a textured wooden table. Include complementary props like a linen napkin or a sprig of herbs to enhance the atmosphere."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> On a Rustic Wooden Table</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Place the product on a bright, sunny beach with soft white sand. The background should show gentle ocean waves and a clear blue sky, creating a vacation or summer mood."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> On a Sandy Beach</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Place the product in a natural, serene forest setting. It could be resting on a mossy rock or a bed of green leaves, with dappled sunlight filtering through the trees."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> In a Lush Green Forest</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Render the product placed on a clean windowsill bathed in soft, warm morning light. The light should cast long, gentle shadows, and the view outside the window should be softly blurred, suggesting a peaceful indoor setting."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> On a windowsill (morning light)</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Create a detailed close-up shot of the product in a lush, natural setting (e.g., on a large leaf or moss). The product MUST be covered in tiny, realistic, glistening dew drops, reflecting the early morning light."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> In nature (with dew drops)</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Render the product placed naturally on a cafe table, with blurred background elements. Include photorealistic human hands subtly interacting near the product (e.g., holding a cup, resting nearby)."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> On Cafe Table (Hands Nearby)</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Generate a close-up shot focusing on photorealistic hands carefully unboxing or opening the product's packaging."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Unboxing Scene (Hands Only)</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Create an extreme close-up shot focusing on the product being held by photorealistic model hands. Emphasize the product details and the interaction with the hands. Keep the model's face/body out of frame or heavily blurred."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Held by Model (Close-up)</label>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Environmental Interactions</legend>
+                      <div class="retouch-actions-grid">
+                        <label class="checkbox-control"><input type="checkbox" value="Create a visually stunning shot of the product partially or fully submerged in crystal clear water. Render realistic underwater light refractions (caustics), gentle air bubbles rising from the product, and the distortion of the product's shape as seen through the water's surface."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Product submerged in water</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Render the product resting in a bed of fresh, powdery snow. The product MUST have a realistic accumulation of snowflakes on its top surfaces, with some flakes showing subtle melting or clumping. The lighting should be crisp and cool, as on a bright winter day."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Product covered in snow</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Create an atmospheric shot where the product is enveloped by thick, volumetric smoke or fog. The smoke should realistically wrap around the product's contours and be dramatically lit by a single light source, creating god rays and highlighting the product's form."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Product interacting with smoke/fog</label>
+                        <label class="checkbox-control"><input type="checkbox" value="Generate an elegant, soft-focus shot of the product partially covered by a delicate scattering of soft, photorealistic flower petals (e.g., rose or cherry blossom petals). The lighting should be soft and diffused to create a romantic and luxurious mood."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Product covered in petals</label>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Functional</legend>
+                      <div class="retouch-actions-grid">
+                        <label class="checkbox-control"><input type="checkbox" value="Create a dynamic and authentic lifestyle shot showing the product being actively used in a realistic scenario. For example, if it's a coffee mug, show a person drinking from it; if it's a shoe, show it being worn by someone walking or running."><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Product in Action / Use Case</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  
+                  <div class="button-group" style="margin-top: 1.5rem;">
+                    <button id="start-photoshoot-btn" class="btn btn-primary">
+                      <span class="button-content">
+                        <i class="fa-solid fa-camera"></i>
+                        Start Photoshoot
+                      </span>
+                      <div class="spinner button-spinner"></div>
+                    </button>
+                    <button id="photoshoot-download-all-btn" class="btn btn-secondary" style="display: none;">
+                        <span class="button-content">
+                          <i class="fa-solid fa-file-archive"></i>
+                          Download All Angles
+                        </span>
+                        <div class="spinner button-spinner"></div>
+                    </button>
+                  </div>
+                </div>
+                <section class="final-result-container card">
+                  <div class="spinner" style="display: none;"></div>
+                  <div id="photoshoot-result-content" class="result-content-area"></div>
+                  <div class="error-message-area" style="display: none;"></div>
+                </section>
+              </section>
+            </div>
+            
+            <div id="image-blender-content" class="tab-content">
+                <section id="image-blender-section" class="card">
+                    <h3 class="step-heading">1. Upload Images & Assign Roles</h3>
+                    <div class="blender-uploaders-grid">
+                        <!-- Items will be duplicated in JS, this is a template -->
+                        <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-1" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-1">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-2" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-2">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-3" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-3">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-4" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-4">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-5" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-5">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-6" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-6">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-7" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-7">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                         <div class="blender-uploader-item">
+                            <div class="upload-box">
+                              <input type="file" id="blender-image-input-8" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><i class="fa-solid fa-plus" style="font-size: 1.5rem;"></i></div>
+                              <img class="image-preview" src="#" style="display:none;"/>
+                            </div>
+                            <select id="blender-role-select-8">
+                                <option value="not_used">Not Used</option>
+                                <option value="Subject">Subject</option>
+                                <option value="Background / Scene">Background / Scene</option>
+                                <option value="Style Reference">Style Reference</option>
+                                <option value="Color Palette">Color Palette</option>
+                                <option value="Lighting Reference">Lighting Reference</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="prompt-container">
+                        <div class="label-with-action">
+                            <label for="blender-prompt-input" class="section-label step-heading">2. Describe the Final Scene</label>
+                            <button id="analyze-suggest-button" class="btn-icon tooltip-container" data-tooltip="Analyze images and suggest a prompt">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <div class="spinner button-spinner"></div>
+                            </button>
+                        </div>
+                        <textarea id="blender-prompt-input" rows="4" placeholder="Describe how to combine the images, or click the magic wand to get a suggestion."></textarea>
+                    </div>
+                     <div class="button-group" style="margin-top: 1.5rem;">
+                        <button id="blender-generate-btn" class="btn btn-primary">
+                            <span class="button-content"><i class="fa-solid fa-bolt"></i>Synthesize Image</span>
+                            <div class="spinner button-spinner"></div>
+                        </button>
+                    </div>
+                    <section class="final-result-container card">
+                      <div class="spinner" style="display: none;"></div>
+                      <div id="blender-result-content" class="result-content-area"></div>
+                      <div class="error-message-area" style="display: none;"></div>
+                    </section>
+                </section>
+            </div>
+            
+            <div id="shifter-3d-content" class="tab-content">
+                <section class="card">
+                    <div class="image-uploader">
+                        <h3 class="step-heading">1. Upload 2D Illustration</h3>
+                        <div class="upload-box" id="shifter-2d-image-box">
+                          <input type="file" id="shifter-2d-image-input" accept="image/*">
+                          <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                          <div class="upload-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><p>Click or drag to upload</p></div>
+                          <img class="image-preview" src="#" style="display:none;"/>
+                        </div>
+                    </div>
+
+                    <div class="options-group" style="margin-top: 1.5rem;" id="shifter-mode-selector">
+                        <h4 class="options-group-title">Operation Mode</h4>
+                        <div class="retouch-actions-grid" style="grid-template-columns: 1fr;">
+                            <label class="radio-control">
+                                <input type="radio" name="operation-mode" value="standard" checked>
+                                <span class="custom-radio"></span> Use Standard 3D Styles
+                            </label>
+                            <label class="radio-control">
+                                <input type="radio" name="operation-mode" value="clone">
+                                <span class="custom-radio"></span> Clone Style from Reference Image
+                            </label>
+                            <label class="radio-control">
+                                <input type="radio" name="operation-mode" value="text">
+                                <span class="custom-radio"></span> Generate Style from Text Prompt
+                            </label>
+                        </div>
+                        <div class="image-uploader" id="style-reference-uploader" style="display: none; margin-top: 1rem;">
+                            <h3 class="step-heading" style="font-size: 1rem; margin-bottom: 0.5rem;">Upload 3D Style Reference Image</h3>
+                            <div class="upload-box">
+                              <input type="file" id="shifter-style-reference-input" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><p>Upload Style</p></div>
+                              <img class="image-preview" src="#" style="display:none;">
+                            </div>
+                        </div>
+                        <div id="shifter-text-prompt-container" style="display: none; margin-top: 1rem;">
+                            <h3 class="step-heading" style="font-size: 1rem; margin-bottom: 0.5rem;">Describe the 3D Style</h3>
+                            <textarea id="shifter-text-prompt-input" rows="3" placeholder="e.g., A glossy, polished chrome material with cinematic blue and purple reflections."></textarea>
+                        </div>
+                    </div>
+
+                    <div id="shifter-standard-controls">
+                        <div class="sidebar-control" style="margin-top: 1.5rem;">
+                            <label for="shifter-style-select" class="section-label step-heading">2. Choose 3D Style</label>
+                            <select id="shifter-style-select">
+                                <optgroup label="Realistic & Semi-Realistic">
+                                    <option value="photorealistic_render" selected>Photorealistic Render</option>
+                                    <option value="claymation_stop_motion">Claymation / Stop-Motion</option>
+                                    <option value="miniature_diorama">Miniature Diorama</option>
+                                </optgroup>
+                                <optgroup label="Stylized & Cartoon">
+                                    <option value="disney_pixar">Disney/Pixar Animation</option>
+                                    <option value="anime_cel_shaded">Anime / Cel-Shaded Style</option>
+                                    <option value="cartoonish_3d">Cartoonish 3D</option>
+                                    <option value="hand_painted_texture">Hand-Painted Texture Style</option>
+                                </optgroup>
+                                <optgroup label="Geometric & Abstract">
+                                    <option value="low_poly_geometric">Low Poly / Geometric</option>
+                                    <option value="voxel_minecraft">Voxel / Minecraft</option>
+                                    <option value="origami_folded_paper">Origami / Folded Paper Style</option>
+                                    <option value="wireframe_blueprint">Wireframe / Blueprint</option>
+                                </optgroup>
+                                <optgroup label="Artistic Movements">
+                                    <option value="cyberpunk">Cyberpunk</option>
+                                    <option value="steampunk">Steampunk</option>
+                                    <option value="art_deco">Art Deco</option>
+                                    <option value="gothic">Gothic</option>
+                                    <option value="bauhaus">Bauhaus</option>
+                                </optgroup>
+                                <optgroup label="Retro & Glitch">
+                                    <option value="retro_ps1_n64">Retro PS1/N64 Style</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <fieldset style="margin-top: 1.5rem;">
+                          <legend>Advanced Controls</legend>
+                          <div class="sidebar-control">
+                            <label class="section-label step-heading">3. Select Output Angles</label>
+                            <div class="retouch-actions-grid">
+                              <label class="checkbox-control"><input type="checkbox" value="front_view" id="shifter-angle-front"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Front View</label>
+                              <label class="checkbox-control"><input type="checkbox" value="side_profile" id="shifter-angle-side"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Side Profile</label>
+                              <label class="checkbox-control"><input type="checkbox" value="top_down" id="shifter-angle-top"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> Top-Down View</label>
+                              <label class="checkbox-control"><input type="checkbox" value="45_degree" id="shifter-angle-45"><span class="custom-checkbox"><i class="fa-solid fa-check"></i></span> 45-Degree View</label>
+                            </div>
+                          </div>
+                          <div class="image-uploader" style="margin-top: 1.5rem;">
+                            <h3 class="step-heading">4. Optional: Upload Material Texture</h3>
+                            <div class="upload-box" id="shifter-texture-box">
+                              <input type="file" id="shifter-texture-input" accept="image/*">
+                              <button class="clear-upload-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                              <div class="upload-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><p>Upload texture</p></div>
+                              <img class="image-preview" src="#" style="display:none;">
+                            </div>
+                          </div>
+                          <div class="sidebar-control" style="margin-top: 1.5rem;">
+                            <label for="shifter-lighting-select" class="section-label step-heading">5. Choose Lighting Mood</label>
+                            <select id="shifter-lighting-select">
+                              <option value="soft_studio" selected>Soft Studio</option>
+                              <option value="three_point">Three-Point</option>
+                              <option value="natural_daylight">Natural Daylight</option>
+                              <option value="golden_hour">Golden Hour</option>
+                              <option value="direct_sunlight">Direct Sunlight</option>
+                              <option value="dramatic_hard">Dramatic Hard</option>
+                              <option value="high_key">High-Key</option>
+                              <option value="low_key">Low-Key</option>
+                              <option value="butterfly">Butterfly</option>
+                              <option value="backlit">Backlit</option>
+                              <option value="cinematic">Cinematic</option>
+                              <option value="neon">Neon</option>
+                              <option value="caustic">Caustic</option>
+                            </select>
+                          </div>
+                          <div class="sidebar-control" style="margin-top: 1.5rem;">
+                            <label class="checkbox-control">
+                              <input type="checkbox" id="shifter-environment-checkbox">
+                              <span class="custom-checkbox"><i class="fa-solid fa-check"></i></span>
+                              Generate Simple Environment
+                            </label>
+                            <textarea id="shifter-environment-input" rows="2" placeholder="e.g., place on a marble pedestal, on a wooden table" style="margin-top: 1rem;"></textarea>
+                          </div>
+                          <div class="sidebar-control" style="margin-top: 1.5rem;">
+                            <label for="shifter-dof-select" class="section-label step-heading">6. Depth of Field (Aperture)</label>
+                            <select id="shifter-dof-select">
+                              <option value="none" selected>None (Deep Focus)</option>
+                              <option value="f/1.4">Cinematic (f/1.4)</option>
+                              <option value="f/2.8">Shallow (f/2.8)</option>
+                              <option value="f/5.6">Moderate (f/5.6)</option>
+                              <option value="f/11">Standard (f/11)</option>
+                            </select>
+                          </div>
+                        </fieldset>
+                    </div>
+
+                    <div id="shifter-output-legend" class="card" style="display: none; margin-top: 1.5rem; background-color: rgba(80, 160, 255, 0.1);">
+                      <p style="font-size: 0.9rem; color: var(--text-color-light);"><strong>Note:</strong> When "Clone Style" is active, the model will generate a single, high-fidelity image based on the style reference. Angle and other controls are disabled.</p>
+                    </div>
+                    
+                    <div class="button-group" style="margin-top: 1.5rem;">
+                        <button id="shifter-3d-btn" class="btn btn-primary">
+                            <span class="button-content">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span id="shifter-transform-btn-text">Transform to 3D Style</span>
+                            </span>
+                            <div class="spinner button-spinner"></div>
+                        </button>
+                        <button id="shifter-turntable-btn" class="btn btn-secondary">
+                          <span class="button-content"><i class="fa-solid fa-rotate"></i>Generate Turntable Views</span>
+                          <div class="spinner button-spinner"></div>
+                      </button>
+                    </div>
+                    <section class="final-result-container card">
+                      <div class="spinner" style="display: none;"></div>
+                      <div id="shifter-result-content" class="result-content-area"></div>
+                      <div class="error-message-area" style="display: none;"></div>
+                    </section>
+                </section>
+            </div>
+
+          </div>
+        </main>
+        <aside class="sidebar master-control-sidebar" style="display: none;">
+          <div class="sidebar-scroll-content">
+            <h2 id="sidebar-title">Master Controls</h2>
+            <div id="sidebar-controls-container">
+              <div class="sidebar-grid">
+                <div class="sidebar-control visual-wizard-toggle grid-span-2">
+                  <div class="visual-wizard-label-container">
+                      <div id="visual-wizard-spinner" class="spinner" style="display: none;"></div>
+                      <span id="visual-wizard-label">Visual Wizard</span>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox" id="visual-wizard-checkbox" checked>
+                      <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div id="manual-controls-panel" class="grid-span-2" style="display: contents;">
+                  <div class="sidebar-control control-group grid-span-2">
+                    <label for="reference-usage-select" class="section-label">Reference Usage</label>
+                    <select id="reference-usage-select">
+                        <option value="full_scene_emulation" selected>Full Scene Emulation (Style & Background)</option>
+                        <option value="artistic_style_transfer">Artistic Style Transfer (New Background)</option>
+                        <option value="object_swap">Object Swap / Placement</option>
+                        <option value="lighting_theft">Lighting Theft Only</option>
+                        <option value="inpainting_edit">Inpainting / Edit Scene</option>
+                        <option value="keep_model_replace_object">Keep Model (Replace Object)</option>
+                        <option value="none">None (Ignore Reference)</option>
+                    </select>
+                  </div>
+                  
+                  <div class="sidebar-control control-group">
+                    <label for="lighting-style-select" class="section-label">Lighting Style</label>
+                    <select id="lighting-style-select">
+                        <option value="soft_studio" selected>Soft Studio</option>
+                        <option value="three_point">Three-Point</option>
+                        <option value="natural_daylight">Natural Daylight</option>
+                        <option value="golden_hour">Golden Hour</option>
+                        <option value="direct_sunlight">Direct Sunlight</option>
+                        <option value="dramatic_hard">Dramatic Hard</option>
+                        <option value="high_key">High-Key</option>
+                        <option value="low_key">Low-Key</option>
+                        <option value="butterfly">Butterfly</option>
+                        <option value="backlit">Backlit</option>
+                        <option value="cinematic">Cinematic</option>
+                        <option value="neon">Neon</option>
+                        <option value="caustic">Caustic</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="camera-perspective-select" class="section-label">Camera Perspective</label>
+                    <select id="camera-perspective-select">
+                        <option value="front_view" selected>Front View</option>
+                        <option value="low_angle">Low Angle</option>
+                        <option value="high_angle">High Angle</option>
+                        <option value="side_view">Side View</option>
+                        <option value="top_down">Top-Down</option>
+                        <option value="45_degree">45-Degree</option>
+                        <option value="dutch_angle">Dutch Angle</option>
+                        <option value="pov">Point of View (POV)</option>
+                        <option value="wide_angle_lens">Wide-Angle Lens</option>
+                        <option value="telephoto_lens">Telephoto Lens</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="shot-type-select" class="section-label">Shot Type</label>
+                    <select id="shot-type-select">
+                        <option value="hero" selected>Hero Shot</option>
+                        <option value="full_product">Full Product Shot</option>
+                        <option value="medium">Medium Shot</option>
+                        <option value="closeup">Close-up</option>
+                        <option value="extreme_closeup">Extreme Close-up / Macro</option>
+                        <option value="wide">Wide / Environmental Shot</option>
+                        <option value="action">Action Shot</option>
+                        <option value="bokeh">Extreme Bokeh</option>
+                        <option value="knolling">Knolling / Flat Lay</option>
+                        <option value="lifestyle">Lifestyle / In-Context</option>
+                        <option value="symmetrical">Symmetrical Composition</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="lighting-shadow-style-select" class="section-label">Lighting & Shadow Style</label>
+                    <select id="lighting-shadow-style-select">
+                        <option value="none">None</option>
+                        <option value="soft_natural" selected>Soft & Natural</option>
+                        <option value="strong_defined">Strong & Defined</option>
+                        <option value="cinematic_dramatic">Cinematic & Dramatic</option>
+                        <option value="high_key">High-Key (Minimal Shadows)</option>
+                        <option value="low_key">Low-Key (Shadow Dominated)</option>
+                        <option value="rembrandt">Rembrandt</option>
+                        <option value="gobo">Gobo (Patterned Shadows)</option>
+                    </select>
+                  </div>
+                  
+                  <div class="sidebar-control control-group">
+                    <label for="time-of-day-select" class="section-label">Time of Day Override</label>
+                    <select id="time-of-day-select">
+                        <option value="keep_original" selected>Keep Original</option>
+                        <option value="force_daytime">Force Daytime</option>
+                        <option value="force_nighttime">Force Nighttime</option>
+                        <option value="force_golden_hour">Force Golden Hour</option>
+                        <option value="force_blue_hour">Force Blue Hour</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="weather-atmosphere-select" class="section-label">Weather & Atmosphere</label>
+                    <select id="weather-atmosphere-select">
+                      <option value="clear_skies" selected>Clear Skies (Default)</option>
+                      <option value="overcast">Overcast / Cloudy</option>
+                      <option value="light_rain">Light Rain / Drizzle</option>
+                      <option value="heavy_rain">Heavy Rain (Puddles & Wet Surfaces)</option>
+                      <option value="heavy_fog">Heavy Fog / Dense Mist</option>
+                      <option value="light_snow">Light Snowfall</option>
+                      <option value="blizzard">Blizzard / Heavy Snow</option>
+                      <option value="stormy">Stormy (Lightning & Dark Clouds)</option>
+                      <option value="sandstorm">Dusty / Sandstorm</option>
+                      <option value="surreal_haze">Surreal / Dreamy Haze</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="season-override-select" class="section-label">Season Override</label>
+                    <select id="season-override-select">
+                      <option value="keep_original" selected>Keep Original (Default)</option>
+                      <option value="spring">Spring (Flowering)</option>
+                      <option value="summer">Summer (Lush Green)</option>
+                      <option value="autumn">Autumn (Falling Leaves & Orange Tones)</option>
+                      <option value="winter">Winter (Bare Trees & Snow)</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="download-quality-select" class="section-label">Download Quality</label>
+                    <select id="download-quality-select">
+                        <option value="1k" selected>Standard (1K)</option>
+                        <option value="2k">High Quality (2K)</option>
+                        <option value="4k">Ultra Quality (4K)</option>
+                    </select>
+                  </div>
+                  
+                  <div class="sidebar-control control-group">
+                    <label for="camera-kit-select" class="section-label">Camera & Shot</label>
+                    <select id="camera-kit-select">
+                        <option value="" selected>None</option>
+                        <option value="ai_hero">AI-Hero</option>
+                        <option value="worms_eye">Worm's-Eye</option>
+                        <option value="lay_flat_top_down">Lay-Flat Top-Down</option>
+                        <option value="macro_edge_detail">Macro Edge Detail</option>
+                        <option value="dutch_tilt">Dutch Tilt</option>
+                        <option value="product_portrait">Product Portrait</option>
+                        <option value="negative_space">Negative Space</option>
+                        <option value="in_hand_pov">In-Hand POV</option>
+                        <option value="levitation">Levitation</option>
+                        <option value="mirror_reflection">Mirror Reflection</option>
+                        <option value="glimpse">Glimpse</option>
+                        <option value="exploded_view">Exploded View</option>
+                        <option value="backlit_rim">Backlit Rim</option>
+                        <option value="diagonal_shelf">Diagonal Shelf</option>
+                        <option value="swatch_tiles">Swatch Tiles</option>
+                        <option value="splash_pour">Splash & Pour</option>
+                        <option value="light_sweep">Light Sweep</option>
+                        <option value="behind_the_glass">Behind the Glass</option>
+                        <option value="cut_in_top">Cut in Top</option>
+                        <option value="comparison">Comparison</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="product-retouch-kit-select" class="section-label">Product Detailer</label>
+                    <select id="product-retouch-kit-select">
+                        <option value="" selected>None</option>
+                        <option value="cleanup_dust_removal">Cleanup & Dust Removal</option>
+                        <option value="edge_refinement">Edge Refinement</option>
+                        <option value="specular_control">Specular Control</option>
+                        <option value="texture_pop">Texture Pop</option>
+                        <option value="micro_detail_preservation">Micro-Detail Preservation</option>
+                        <option value="plastic_metal_polish">Plastic/Metal Polish</option>
+                        <option value="label_warp_fix">Label Warp Fix</option>
+                        <option value="color_mastering">Color Mastering</option>
+                        <option value="variant_generator">Variant Generator</option>
+                        <option value="shadow_types">Shadow Types</option>
+                        <option value="reflection_builder">Reflection Builder</option>
+                        <option value="relight_ai_depth">Relight (AI/Depth)</option>
+                        <option value="de_band_de_noise">De-Band & De-Noise</option>
+                        <option value="clean_bloom_caustics">Clean Bloom & Caustics</option>
+                        <option value="liquid_cleanup">Liquid Cleanup</option>
+                        <option value="print_ready_proof">Print-Ready Proof</option>
+                        <option value="upscale_detail">Upscale & Detail</option>
+                    </select>
+                  </div>
+
+                  <div class="sidebar-control control-group">
+                    <label for="manipulation-kit-select" class="section-label">Creative FX</label>
+                    <select id="manipulation-kit-select">
+                        <option value="" selected>None</option>
+                        <option value="smart_masking_suite">Smart Masking Suite</option>
+                        <option value="frequency_separation">Frequency Separation</option>
+                        <option value="displacement_normal_maps">Displacement / Normal Maps</option>
+                        <option value="perspective_match">Perspective Match</option>
+                        <option value="shadow_catch_synthesis">Shadow Catch & Synthesis</option>
+                        <option value="hsl_hdr_match">HSL / HDR Match</option>
+                        <option value="texture_projection">Texture Projection</option>
+                        <option value="liquid_splash_fx">Liquid/Splash FX</option>
+                        <option value="fog_haze_atmosphere">Fog/Haze/Atmosphere</option>
+                        <option value="tilt_shift_dof_craft">Tilt-Shift / DoF Craft</option>
+                        <option value="glitch_scanline_subtle">Glitch/Scanline (Subtle)</option>
+                        <option value="embossed_outlines">Embossed & Outlines</option>
+                        <option value="cloth_label_warp">Cloth/Label Warp</option>
+                        <option value="gradient_map_look">Gradient Map Look</option>
+                        <option value="chromatic_aberration_micro">Chromatic Aberration (Micro)</option>
+                        <option value="grain_halation">Grain & Halation</option>
+                        <option value="motion_trails_smear">Motion Trails / Smear</option>
+                        <option value="reflection_compositing">Reflection Compositing</option>
+                        <option value="neon_rim_pack">Neon Rim Pack</option>
+                    </select>
+                  </div>
+                  
+                  <div class="sidebar-control control-group">
+                    <label for="people-retouch-kit-select" class="section-label">Portrait Enhance</label>
+                    <select id="people-retouch-kit-select">
+                        <option value="" selected>None</option>
+                        <option value="natural_skin">Natural Skin</option>
+                        <option value="freq_sep_skin">Frequency Separation (Skin)</option>
+                        <option value="dodge_burn">Dodge & Burn</option>
+                        <option value="eye_enhancement">Eye Enhancement</option>
+                        <option value="hair_cleanup">Hair Cleanup</option>
+                        <option value="clothing_fabric_retouch">Clothing & Fabric Retouch</option>
+                        <option value="glamour_glow">Glamour Glow</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div id="shared-panels-storage" style="display: none;">
+      </div>
+
+    </div>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
